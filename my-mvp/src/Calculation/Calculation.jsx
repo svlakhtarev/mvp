@@ -18,15 +18,14 @@ class Calculation extends React.Component {
   render() {
     let {onChange} = this.props;
 
-    return <div>
+    return <>
       {filter.map(item => (
-        <div key={item.categoryID}>
-          <Row justify="start">
-            <Col span={3} offset={9}>
-            <strong>{item.lable}</strong>
-            </Col>
-            <Col span={6}>
-            <Select defaultValue={item.options.typeID[0]} onChange={onChange}>
+        <Row justify="start" key={item.categoryID}>
+          <Col span={3} offset={9}>
+          <strong>{item.lable}</strong>
+          </Col>
+          <Col span={6}>
+            <Select defaultValue={item.options[0].title} onChange={onChange}>
               {item.options.map(option => (
                 <option key={option.typeID}
                         value={JSON.stringify({
@@ -35,15 +34,14 @@ class Calculation extends React.Component {
                         })}>{option.title}</option>
               ))}
             </Select>
-            </Col>
-          </Row>
-        </div>
+          </Col>
+        </Row>
       ))}
-      <div>
+      <Row justify="center">
         <Button onClick={this.resultStateHandler}>Result</Button>
         {this.state.resultCallState ? <Result/> : null}
-      </div>
-    </div>
+      </Row>
+    </>
   }
 }
 

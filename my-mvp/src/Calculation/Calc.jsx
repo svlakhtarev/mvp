@@ -8,9 +8,8 @@ class Calc extends Component {
     values: []
   }
 
-  handleChange = (event) => {
-    console.dir(event.target.value)
-    const parse = JSON.parse(event.target.value)
+  handleChange = (value) => {
+    const parse = JSON.parse(value)
     const nextValues = this.state.values.filter(value => parse.categoryID !== value.categoryID)
 
     if (parse.typeID !== null) {
@@ -21,11 +20,8 @@ class Calc extends Component {
   }
 
   render() {
-    console.dir(this.state.values)
     return (
-      <div>
-        <Calculation onChange={this.handleChange}/>
-      </div>
+      <Calculation onChange={this.handleChange}/>
     )
   }
 }
