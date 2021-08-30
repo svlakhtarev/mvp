@@ -2,13 +2,14 @@ import React from 'react'
 import {NavLink} from "react-router-dom"
 import logo from './../logo.svg'
 import style from './Header.module.css'
+import {Header} from "antd/es/layout/layout";
 
-const Header = () => {
-  return <div>
+const HeaderPart = () => {
+  return <Header>
     <NavLink to={'/'}>
-      <img className={style.logo} src={logo}/>
+      <img className={style.logo} src={logo} alt={'logo'}/>
     </NavLink>
-  </div>
+  </Header>
 }
 
-export default Header
+export default HeaderPart
