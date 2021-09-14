@@ -1,0 +1,55 @@
+/*Header*/
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+/*Result*/
+
+.result {
+  background-color: #f9f9fa;
+}
+
+/*Calculation*/
+
+.content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.description {
+
+}
+
+.cardSelect {
+  min-width: 300px;
+  text-align: center;
+}
+
+.button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*ResultSuppliers*/
+
+.card {
+  min-width: 300px;
+  text-align: left;
+}
+
+.cardTitle {
+  text-align: center;
+}
+
+.img {
+  width: 35%;
+  float: left;
+}
+
+/*Styles*/
+
+.h2 {
+  padding-top: 20px;
+}

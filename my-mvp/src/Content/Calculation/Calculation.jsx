@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Button, Card, Col, Row, Select, Space} from 'antd'
-import style from './Calculation.module.css'
+import style from './../../AppStyles.module.css'
 import {filter} from './filter'
 import {Result} from './Result/Result'
 
@@ -21,8 +21,8 @@ export class Calculation extends Component {
 
     return <div className={style.content}>
       <Row justify='center'>
-        <Col span={12}>
-          <h2>Description</h2>
+        <Col span={12} className={style.description}>
+          <h2 className={style.h2}>Description</h2>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus velit in scelerisque lobortis. Maecenas
           gravida bibendum justo, quis elementum sapien venenatis at. Etiam viverra, purus nec placerat molestie, eros
           arcu tristique est, ac commodo justo est a ipsum. Etiam eget lacus sed sapien dictum mattis et quis ex. Cras
@@ -31,18 +31,17 @@ export class Calculation extends Component {
         </Col>
       </Row>
       <Row justify='center' gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
-        {/*Обернуть ещё и фильтрацией всего массива Фильтр, для того, чтобы фильтровать по value с typeID. По нажатию кнопки, отдать отфильтрованные данные в useState, чтобы при нажатии на результат, выдать результат*/}
         {filter.map(item => (
           <Col className="gutter-row" span={6}>
             <Space direction="vertical" key={item.categoryID}>
-              <Card title={item.lable} className={style.card}>
+              <Card title={item.lable} className={style.cardSelect}>
                 <Select defaultValue={item.options[0].title} onChange={onChange}>
                   {item.options.map(option => (
-                    <option key={option.typeID}
-                            value={JSON.stringify({
-                              typeID: option.typeID,
-                              categoryID: item.categoryID
-                            })}>{option.title}</option>
+                    <Select.Option key={option.typeID}
+                                   value={JSON.stringify({
+                                     typeID: option.typeID,
+                                     categoryID: item.categoryID
+                                   })}>{option.title}</Select.Option>
                   ))}
                 </Select>
               </Card>
@@ -50,9 +49,10 @@ export class Calculation extends Component {
           </Col>
         ))}
       </Row>
-      <Button className={style.button} onClick={this.resultStateHandler}>Result</Button>
-      {this.state.resultCallState ? <Result/> : null}
-      {/*как сделать так, чтобы кнопка была не активна (disabled??), если хоть один Select value = null ? Обращение к тому, что лежит в State?*/}
+      <Button className={style.button}
+              disabled={this.props.isDisabled}
+              onClick={this.resultStateHandler}>Result</Button>
+      {this.state.resultCallState ? <Result typeIds={this.props.typeIds}/> : null}
     </div>
   }
 }

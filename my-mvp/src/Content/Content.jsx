@@ -17,8 +17,11 @@ export class ContentPart extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
-      <Calculation onChange={this.handleChange}/>
+      <Calculation typeIds={this.state.values.map(item => item.typeID)}
+                   isDisabled={this.state.values.length === 0}
+                   onChange={this.handleChange}/>
     )
   }
 }

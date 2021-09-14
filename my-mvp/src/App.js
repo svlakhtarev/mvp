@@ -1,9 +1,9 @@
-import './App.css';
+import './App.css'
 import 'antd/dist/antd.css'
-import HeaderPart from "./Header/Header";
-import {Content} from "antd/es/layout/layout";
-import {FooterPart} from "./Footer/Footer";
-import {ContentPart} from "./Content/Content";
+import HeaderPart from './Header/Header'
+import {Content} from 'antd/es/layout/layout'
+import {FooterPart} from './Footer/Footer'
+import {ContentPart} from './Content/Content'
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
       </Content>
       <FooterPart/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

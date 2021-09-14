@@ -1,8 +1,8 @@
 import React from 'react'
-import {NavLink} from "react-router-dom"
+import {NavLink} from 'react-router-dom'
 import logo from './../logo.svg'
-import style from './Header.module.css'
-import {Header} from "antd/es/layout/layout";
+import style from './../AppStyles.module.css'
+import {Header} from 'antd/es/layout/layout'
 
 const HeaderPart = () => {
   return <Header>
